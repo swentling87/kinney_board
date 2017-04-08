@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
       redirect_to [@post]
     else
       flash[:alert] = "Comment failed to save."
+      redirect_to post_path(@post)
     end
   end
 

@@ -1,4 +1,10 @@
 <h1>New Post</h1>
+<p>Guidelines for Posts</p>
+<ul>
+  <li>Must have a title and body.</li>
+  <li>Minimum title length is 5 characters.</li>
+  <li>Minimum body length is 20 characters.</li>
+</ul>
 <div class="row">
   <div class="col-md-12">
     <%= form_for @post do |f| %>
@@ -11,8 +17,7 @@
             <% end %>
           </ul>
         </div>
-    <% end %>
-
+      <% end %>
     <div class="field post-frm">
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
