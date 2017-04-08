@@ -27,6 +27,7 @@ gem 'figaro'
 gem 'haml'
 gem 'devise'
 gem 'will_paginate', '~> 3.1.0'
+gem 'faker'
 
 group :test do
   gem 'simplecov', require: false
