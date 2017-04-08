@@ -1,0 +1,46 @@
+<section class="row">
+  <div class="col-md-12">
+    <div class="post_header">
+      <span>
+        <h2 class="post-bnr">All Posts</h2>
+        <% if current_user %>
+          <%= link_to "New Post", new_post_path, class: 'btn btn-success pull-right post-btn' %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+</section>
+<section class="row">
+  <div class="col-md-12">
+    <% @posts.each do |post| %>
+      <div class="index_post">
+        <hr />
+        <span>
+          <h3 class="index_post_header">
+            <%= link_to post.title, post_path(post) %>
+            <!-- Comments Here -->
+          </h3>
+          <small class='pull-right inlin-block'>
+            submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %> <br>
+          </small>
+        </span>
+        <br /><br />
+        <div class="index_post_body">
+          <%= post.body %>
+        </div>
+        <hr />
+      </div>
+    <% end %>
+  </div>
+</section>
+<section class='row'>
+  <div class='col-md-1 col-xs-1'></div>
+  <div class='col-md-10 col-xs-10'>
+    <nav aria-label="posts">
+      <div class="flickr_pagination">
+        <%= will_paginate @posts %>
+      </div>
+    </nav>
+  </div>
+  <div class='col-md-1 col-xs-1'></div>
+</section>

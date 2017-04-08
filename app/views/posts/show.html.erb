@@ -1,0 +1,49 @@
+<section class="row">
+  <h1 class="post_header">
+    <%= @post.title.capitalize %>
+  </h1>
+  <div class="col-md-12">
+    <small>
+      <%= time_tag(@post.created_at) %>
+    </small><br /><br />
+    <%= @post.body %>
+  </div>
+</section>
+<br /><br />
+<section class="row">
+  <div class="post_header">
+    <span>
+      <h2 class="post-bnr">Comments</h2>
+      <% if current_user %>
+        <%= link_to "New Comment", "", class: 'btn btn-success pull-right add_comment comment-btn' %>
+      <% end %>
+    </span>
+  </div>
+  <div class="col-md-12">
+    <div class="comment_form">
+      <%= render "comments/form", post: @post, comment: Comment.new %>
+    </div>
+  </div>
+</section>
+<section class="row">
+  <div class="col-md-12">
+    <% @post.comments.each do |comment| %>
+      <div class="index_post">
+        <hr />
+        <span>
+          <h3 class="index_post_header">
+            <%= comment.title %>
+          </h3>
+          <small class='pull-right inlin-block'>
+            submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.email %> <br>
+          </small>
+        </span>
+        <br /><br />
+        <div class="index_post_body">
+          <%= comment.body %>
+        </div>
+        <hr />
+      </div>
+    <% end %>
+  </div>
+</section>

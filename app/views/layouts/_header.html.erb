@@ -1,0 +1,16 @@
+<section class="page-header">
+  <div class="container">
+    <%= link_to(root_path) do %>
+    <h2 class="header-bnr">Message Board</h2>
+    <% end %>
+    <span class="pull-right">
+      <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-md pull-right header-btn" %>
+        <%= link_to "See Posts", posts_path, class: "btn btn-primary btn-md pull-right header-btn" %>
+      <% else %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-md pull-right header-btn" %>
+        <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-md pull-right header-btn" %>
+      <% end %>
+    </span>
+  </div>
+</section>
