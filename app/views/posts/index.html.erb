@@ -21,7 +21,7 @@
             <!-- Comments Here -->
           </h3>
           <small class='pull-right inlin-block'>
-            submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %> <br>
+            submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.first_name %> <%= post.user.last_name %> <br>
           </small>
         </span>
         <br /><br />

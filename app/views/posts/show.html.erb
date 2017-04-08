@@ -4,7 +4,7 @@
   </h1>
   <div class="col-md-12">
     <small>
-      <%= time_tag(@post.created_at) %>
+      <%= time_tag(@post.created_at) %> By: <%= @post.user.first_name %> <%= @post.user.last_name %>
     </small><br /><br />
     <%= @post.body %>
   </div>
@@ -35,7 +35,7 @@
             <%= comment.title %>
           </h3>
           <small class='pull-right inlin-block'>
-            submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.email %> <br>
+            submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.first_name %> <%= comment.user.last_name %> <br>
           </small>
         </span>
         <br /><br />
